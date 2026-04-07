@@ -1,0 +1,107 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 1 (Organic & Earthy) infused with Archetype 5 (Jewel & Luxury)",
+  "colors": {
+    "background": "#FAF8F0",
+    "surface": "#FFFFFF",
+    "primary": "#8B1A00",
+    "primary_hover": "#A62000",
+    "secondary": "#D4AF37",
+    "secondary_hover": "#E6C353",
+    "text_main": "#2C1B18",
+    "text_muted": "#5C4A46",
+    "border": "rgba(212, 175, 55, 0.3)",
+    "shadow_color": "rgba(139, 26, 0, 0.08)"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Outfit, sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-6xl tracking-tight leading-none",
+      "h2": "text-3xl md:text-4xl tracking-tight",
+      "h3": "text-xl md:text-2xl",
+      "body": "text-base md:text-lg leading-relaxed",
+      "small": "text-sm tracking-wide uppercase"
+    }
+  },
+  "layout": {
+    "spacing": "Generous spacing system using p-8, p-12, py-24 for sections to create an elegant breathing room.",
+    "grid": "Bento-style or wide asymmetric grids. Mobile-first grid-cols-1, scaling to md:grid-cols-2 and lg:grid-cols-3."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#8B1A00] text-[#FAF8F0] rounded-none px-6 py-3 transition-colors hover:bg-[#A62000] font-medium tracking-wide flex items-center justify-center gap-2",
+      "secondary": "border-2 border-[#D4AF37] text-[#8B1A00] rounded-none px-6 py-3 transition-colors hover:bg-[#D4AF37]/10 font-medium tracking-wide flex items-center justify-center gap-2",
+      "badge": "bg-[#D4AF37] text-[#8B1A00] text-xs font-bold px-3 py-1 uppercase tracking-widest rounded-full"
+    },
+    "cards": {
+      "book": "bg-[#FFFFFF] border border-[#D4AF37]/20 p-6 shadow-[0_8px_32px_rgba(139,26,0,0.05)] flex flex-col items-start gap-4 transition-transform hover:-translate-y-1",
+      "author": "bg-[#FAF8F0] border-l-4 border-[#8B1A00] p-6 shadow-sm"
+    },
+    "header": {
+      "style": "sticky top-0 z-50 bg-[#FAF8F0]/90 backdrop-blur-xl border-b border-[#D4AF37]/20 py-4 px-6 flex justify-between items-center"
+    }
+  },
+  "media": {
+    "images": {
+      "hero_bg": {
+        "url": "https://images.unsplash.com/photo-1760840415585-ae89d94bb636?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxvcGVuJTIwYm9vayUyMHdhcm0lMjBsaWdodHxlbnwwfHx8fDE3NzU1NzEwMTB8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Warm illuminated open book pages for abstract hero background"
+      },
+      "author_1_lewis": {
+        "url": "https://images.pexels.com/photos/7163464/pexels-photo-7163464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Portrait of Lewis Ekra"
+      },
+      "author_2_vogel": {
+        "url": "https://images.pexels.com/photos/7109089/pexels-photo-7109089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Portrait of Vogel Deza"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "usage": "Use WhatsApp icon for order CTA, BookOpen icon for Free Excerpt CTA, Globe for language switch."
+    }
+  },
+  "interactions": {
+    "hover_states": "Buttons shift background and borders; book cards elevate slightly on hover (-translate-y-1).",
+    "animations": "Subtle fade-in-up for catalog items using framer-motion (y: 20 -> 0, opacity: 0 -> 1)."
+  },
+  "pages_and_sections": [
+    {
+      "name": "Header",
+      "features": "Logo 'ZOE & REHOBOTH', 'Sponsored By Grace' Badge, Navigation, Language Switcher (FR/EN)."
+    },
+    {
+      "name": "Hero",
+      "features": "Large Slogan, CTA to Catalog, Abstract warm background overlay (bg-[#FAF8F0]/80)."
+    },
+    {
+      "name": "Catalogue (5 Livres)",
+      "features": "Grid of 5 books. Each book shows: Title, Cover placeholder, Price (FCFA). Actions: 'Commander via WhatsApp' (Primary) and 'Extrait Gratuit' (Secondary)."
+    },
+    {
+      "name": "Auteurs",
+      "features": "Biographies for Lewis Ekra and Vogel Deza. Side-by-side bento layout or stacked alternating layout."
+    },
+    {
+      "name": "Agenda / Dédicaces",
+      "features": "List of upcoming events and signings. Minimalist date blocks (Day/Month)."
+    },
+    {
+      "name": "Réseau de Distribution",
+      "features": "Côte d'Ivoire, Togo, France highlighted with map pins or simple elegant list."
+    },
+    {
+      "name": "Footer",
+      "features": "WhatsApp contacts (+225 07 59 49 31 18), Social links, Integrated Facebook Video section just above the footer."
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Use pure HTML + Tailwind for page structure, applying the defined Sardonyx (#8B1A00), Gold (#D4AF37) and Off-White (#FAF8F0) colors.",
+    "Ensure the hero image uses a gradient or solid color overlay to maintain high text contrast.",
+    "WhatsApp buttons must strictly use the #8B1A00 background and off-white text to fit the brand, avoiding default green.",
+    "Language switcher should update text content seamlessly (mock the translation dictionary).",
+    "Incorporate 'data-testid' on all buttons and interactive elements.",
+    "Setup the React application structure focusing on a single long scrolling landing page."
+  ]
+}
