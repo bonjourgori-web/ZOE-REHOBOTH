@@ -113,7 +113,7 @@ export const authors = [
   {
     id: "lewis",
     name: "Lewis Ekra",
-    image: "/images/image6.jpeg",
+    image: "/images/image10.jpeg",
     bio_fr:
       "Auteur prolixe et homme de Dieu, Lewis Ekra est passionné par la transformation des destinées à travers la Parole prophétique. Ses ouvrages guident les lecteurs vers leurs percées professionnelles et spirituelles, révélant les protocoles divins qui ouvrent les portes de la faveur et de l'excellence.",
     bio_en:
