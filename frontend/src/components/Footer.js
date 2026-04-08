@@ -149,9 +149,12 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} ZOE &amp; REHOBOTH Éditions.{" "}
           {t.rights}.
         </p>
-        <p className="zr-footer__made-with">
-          Made with <Heart size={12} fill="currentColor" /> by Grace
-        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <p className="zr-footer__made-with">
+            Made with <Heart size={12} fill="currentColor" /> by Grace
+          </p>
+          <a href="/admin" className="zr-footer__admin-link" data-testid="admin-link">Admin</a>
+        </div>
       </div>
     </footer>
   );

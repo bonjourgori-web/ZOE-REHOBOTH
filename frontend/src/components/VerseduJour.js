@@ -1,43 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { LanguageContext } from "../App";
-import { getDailyVerse } from "../data/verses";
-import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { verses } from "../data/verses";
+import { BookOpen, RefreshCw } from "lucide-react";
+
+const getRandomVerse = () => verses[Math.floor(Math.random() * verses.length)];
 
 export default function VerseduJour() {
   const { lang } = useContext(LanguageContext);
-  const [verse, setVerse] = useState(getDailyVerse());
-  const [index, setIndex] = useState(
-    verses.indexOf(getDailyVerse())
-  );
+  const [verse, setVerse] = useState(getRandomVerse);
   const [visible, setVisible] = useState(true);
+  const [spinning, setSpinning] = useState(false);
 
-  const changeVerse = (newIndex) => {
+  const changeVerse = useCallback(() => {
     setVisible(false);
+    setSpinning(true);
     setTimeout(() => {
-      setIndex(newIndex);
-      setVerse(verses[newIndex]);
+      setVerse(getRandomVerse());
       setVisible(true);
+      setSpinning(false);
     }, 350);
-  };
-
-  const prev = () => changeVerse((index - 1 + verses.length) % verses.length);
-  const next = () => changeVerse((index + 1) % verses.length);
-
-  // Auto-scroll every 30 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => {
-          const ni = (i + 1) % verses.length;
-          setVerse(verses[ni]);
-          return ni;
-        });
-        setVisible(true);
-      }, 350);
-    }, 30000);
-    return () => clearInterval(timer);
   }, []);
 
   const today = new Date().toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", {
@@ -59,7 +40,10 @@ export default function VerseduJour() {
         </div>
 
         {/* Verse content */}
-        <div className={`zr-verse-content ${visible ? "zr-verse--visible" : "zr-verse--hidden"}`}>
+        <div
+          className={`zr-verse-content ${visible ? "zr-verse--visible" : "zr-verse--hidden"}`}
+          data-testid="verse-content"
+        >
           <blockquote className="zr-verse-text" data-testid="verse-text">
             <span className="zr-verse-quote-mark">"</span>
             {lang === "fr" ? verse.fr : verse.en}
@@ -70,33 +54,16 @@ export default function VerseduJour() {
           </cite>
         </div>
 
-        {/* Navigation */}
-        <div className="zr-verse-nav">
-          <button
-            className="zr-verse-nav__btn"
-            onClick={prev}
-            aria-label="Verset précédent"
-            data-testid="verse-prev-btn"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <div className="zr-verse-dots">
-            {[0, 1, 2, 3, 4].map((dot) => (
-              <span
-                key={dot}
-                className={`zr-verse-dot ${dot === index % 5 ? "zr-verse-dot--active" : ""}`}
-              />
-            ))}
-          </div>
-          <button
-            className="zr-verse-nav__btn"
-            onClick={next}
-            aria-label="Verset suivant"
-            data-testid="verse-next-btn"
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
+        {/* CTA Button */}
+        <button
+          className={`zr-verse-refresh ${spinning ? "zr-verse-refresh--spinning" : ""}`}
+          onClick={changeVerse}
+          data-testid="verse-refresh-btn"
+          aria-label={lang === "fr" ? "Nouveau verset" : "New verse"}
+        >
+          <RefreshCw size={15} />
+          <span>{lang === "fr" ? "Nouveau Verset" : "New Verse"}</span>
+        </button>
       </div>
     </section>
   );

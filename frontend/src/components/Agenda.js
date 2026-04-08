@@ -1,12 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { LanguageContext } from "../App";
 import { translations } from "../translations";
-import { events } from "../data/books";
+import { events as staticEvents } from "../data/books";
 import { MapPin, Calendar, User } from "lucide-react";
+import axios from "axios";
+
+const API = process.env.REACT_APP_BACKEND_URL;
 
 export default function Agenda() {
   const { lang } = useContext(LanguageContext);
   const t = translations[lang].agenda;
+  const [events, setEvents] = useState(staticEvents);
+
+  useEffect(() => {
+    axios.get(`${API}/api/events`)
+      .then(r => { if (r.data.length > 0) setEvents(r.data); })
+      .catch(() => {});
+  }, []);
 
   return (
     <section id="agenda" className="zr-section" data-testid="agenda-section">
@@ -18,19 +28,12 @@ export default function Agenda() {
         </div>
 
         <div className="zr-events-list" data-testid="events-list">
-          {events.map((event) => {
+          {events.map((event, i) => {
             const date = lang === "fr" ? event.date_fr : event.date_en;
             const title = lang === "fr" ? event.title_fr : event.title_en;
-            const description =
-              lang === "fr" ? event.description_fr : event.description_en;
-
+            const description = lang === "fr" ? event.description_fr : event.description_en;
             return (
-              <div
-                key={event.id}
-                className="zr-event-card"
-                data-testid={`event-card-${event.id}`}
-              >
-                {/* Date pill */}
+              <div key={event.id || i} className="zr-event-card" data-testid={`event-card-${i}`}>
                 <div className="zr-event-card__date-col">
                   <div className="zr-event-date">
                     <Calendar size={14} />
@@ -40,19 +43,11 @@ export default function Agenda() {
                     <span className="zr-event-badge">{t.upcoming_badge}</span>
                   )}
                 </div>
-
-                {/* Content */}
                 <div className="zr-event-card__content">
                   <h3 className="zr-event-card__title">{title}</h3>
                   <div className="zr-event-card__meta">
-                    <span className="zr-event-card__location">
-                      <MapPin size={13} />
-                      {event.location}
-                    </span>
-                    <span className="zr-event-card__author">
-                      <User size={13} />
-                      {event.author}
-                    </span>
+                    <span className="zr-event-card__location"><MapPin size={13} />{event.location}</span>
+                    <span className="zr-event-card__author"><User size={13} />{event.author}</span>
                   </div>
                   <p className="zr-event-card__desc">{description}</p>
                 </div>
