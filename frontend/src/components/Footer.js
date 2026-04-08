@@ -38,9 +38,20 @@ export default function Footer() {
         {/* Brand */}
         <div className="zr-footer__brand">
           <div className="zr-footer__logo">
-            <span className="zr-logo__zoe">ZOE</span>
-            <span className="zr-logo__amp"> &amp; </span>
-            <span className="zr-logo__rehoboth">REHOBOTH</span>
+            <img
+              src="/images/logo.jpg"
+              alt="Zoe & Rehoboth Editions"
+              className="zr-footer__logo-img"
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.nextSibling && (e.target.nextSibling.style.display = "flex");
+              }}
+            />
+            <div className="zr-footer__logo-fallback" style={{display:"none"}}>
+              <span className="zr-logo__zoe">ZOE</span>
+              <span className="zr-logo__amp"> &amp; </span>
+              <span className="zr-logo__rehoboth">REHOBOTH</span>
+            </div>
           </div>
           <p className="zr-footer__publisher">{t.publisher}</p>
           <p className="zr-footer__tagline">{t.tagline}</p>

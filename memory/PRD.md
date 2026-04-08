@@ -95,7 +95,7 @@ Landing page e-commerce multilingue (FR/EN) pour la maison d'édition chrétienn
 - `/app/frontend/src/data/books.js` — Données livres, auteurs, événements
 - `/app/frontend/src/components/` — Header, Hero, Catalogue, Auteurs, Agenda, VideoSection, Distribution, Footer
 - `/app/frontend/src/App.css` — Styles complets (classes préfixées zr-)
-- `/app/frontend/public/images/` — 11 images extraites du fichier Word
+- `/app/frontend/public/images/logo.jpg` — Logo officiel (colombe + Zoe & Rehoboth Editions)
 
 ---
 

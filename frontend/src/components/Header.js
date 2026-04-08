@@ -36,9 +36,12 @@ export default function Header() {
       <div className="zr-header__inner">
         {/* Logo */}
         <div className="zr-logo" data-testid="logo">
-          <span className="zr-logo__zoe">ZOE</span>
-          <span className="zr-logo__amp"> &amp; </span>
-          <span className="zr-logo__rehoboth">REHOBOTH</span>
+          <img
+            src="/images/logo.jpg"
+            alt="Zoe & Rehoboth Editions"
+            className="zr-logo__img"
+            onError={(e) => { e.target.style.display = "none"; }}
+          />
           <span className="zr-badge" data-testid="sponsored-badge">
             {t.badge}
           </span>

@@ -137,7 +137,16 @@
   gap: 16px;
 }
 
-/* Logo */
+/* Logo image */
+.zr-logo__img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: none;
+  border-radius: 4px;
+}
+
+/* Logo text fallback */
 .zr-logo {
   display: flex;
   align-items: center;
@@ -1064,6 +1073,27 @@
 }
 .zr-footer__logo .zr-logo__amp {
   color: #D4AF37;
+}
+.zr-footer__logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  background-color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  display: block;
+}
+.zr-footer__logo-fallback {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.zr-footer__logo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }
 .zr-footer__publisher {
   font-size: 11px;
