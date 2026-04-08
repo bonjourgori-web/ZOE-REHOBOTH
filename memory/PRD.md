@@ -57,9 +57,12 @@ Landing page e-commerce multilingue (FR/EN) pour la maison d'édition chrétienn
 
 ## Fonctionnalités Clés
 - ✅ Bilingue FR/EN (switch dans le header)
+- ✅ Verset biblique aléatoire (52 versets, nouveau à chaque visite + bouton refresh)
 - ✅ Boutons "Commander via WhatsApp" (pre-remplis avec titre du livre)
 - ✅ Modal "Extrait Gratuit" pour chaque livre
 - ✅ Lien site dédié pour livre 3
+- ✅ Section Témoignages Lecteurs (6 témoignages depuis MongoDB)
+- ✅ Panel Admin (/admin) avec JWT auth (gérer témoignages + agenda)
 - ✅ Scroll doux entre sections
 - ✅ Design responsive (mobile-first)
 - ✅ Images réelles des couvertures des livres
