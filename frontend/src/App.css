@@ -419,6 +419,164 @@
 .zr-section__subtitle--light { color: rgba(250, 248, 240, 0.7); }
 
 /* ======================================================
+   VERSET DU JOUR
+====================================================== */
+.zr-verse-section {
+  background: linear-gradient(135deg, #8B1A00 0%, #6B1200 50%, #8B1A00 100%);
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.zr-verse-section::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 240px;
+  color: rgba(212, 175, 55, 0.08);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.zr-verse-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(212, 175, 55, 0.02) 40px,
+    rgba(212, 175, 55, 0.02) 41px
+  );
+  pointer-events: none;
+}
+.zr-verse-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.zr-verse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.zr-verse-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.zr-verse-date {
+  font-size: 12px;
+  color: rgba(250, 248, 240, 0.55);
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+/* Verse content + fade animation */
+.zr-verse-content {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.zr-verse--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.zr-verse--hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.zr-verse-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-style: italic;
+  font-weight: 400;
+  color: #FAF8F0;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0;
+}
+.zr-verse-quote-mark {
+  font-size: 1.4em;
+  color: #D4AF37;
+  line-height: 0;
+  vertical-align: -0.2em;
+}
+.zr-verse-ref {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D4AF37;
+}
+
+/* Navigation */
+.zr-verse-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.zr-verse-nav__btn {
+  background: none;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(212, 175, 55, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.zr-verse-nav__btn:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.1);
+}
+.zr-verse-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.zr-verse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(212, 175, 55, 0.3);
+  transition: all 0.2s ease;
+}
+.zr-verse-dot--active {
+  background-color: #D4AF37;
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* ======================================================
    CATALOGUE
 ====================================================== */
 .zr-books-grid {

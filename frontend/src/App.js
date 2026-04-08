@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import VerseduJour from "./components/VerseduJour";
 import Catalogue from "./components/Catalogue";
 import Auteurs from "./components/Auteurs";
 import Agenda from "./components/Agenda";
@@ -20,6 +21,7 @@ function App() {
         <Header />
         <main>
           <Hero />
+          <VerseduJour />
           <Catalogue />
           <Auteurs />
           <Agenda />
