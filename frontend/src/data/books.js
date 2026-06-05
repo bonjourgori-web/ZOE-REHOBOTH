@@ -1,3 +1,5 @@
+import { imgUrl } from "../utils/imgUrl";
+
 export const WHATSAPP_NUMBER = "2250759493118";
 export const WHATSAPP_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const FACEBOOK_PAGE = "https://www.facebook.com/ZoeAndRehobothEditions";
@@ -14,7 +16,7 @@ export const getWhatsappUrl = (title, lang) => {
 export const books = [
   {
     id: 1,
-    image: "/images/image4.jpeg",
+    image: imgUrl("/images/image4.jpeg"),
     title_fr: "Protocoles des Palais pour Percées Professionnelles",
     title_en: "Palace Protocols for Professional Breakthroughs",
     author: "Lewis Ekra",
@@ -33,7 +35,7 @@ export const books = [
   },
   {
     id: 2,
-    image: "/images/image3.jpeg",
+    image: imgUrl("/images/image3.jpeg"),
     title_fr: "Paroles de Percées pour Destinées Glorieuses (Version Enfant — Tome 1)",
     title_en: "Breakthrough Words for Glorious Destinies (Children's Version — Volume 1)",
     author: "Lewis Ekra",
@@ -52,7 +54,7 @@ export const books = [
   },
   {
     id: 3,
-    image: "/images/image5.jpeg",
+    image: imgUrl("/images/image5.jpeg"),
     title_fr: "Déclarations pour la Vie (Volume 1)",
     title_en: "Declarations for Life (Volume 1)",
     author: "Lewis Ekra",
@@ -71,7 +73,7 @@ export const books = [
   },
   {
     id: 4,
-    image: "/images/image2.jpeg",
+    image: imgUrl("/images/image2.jpeg"),
     title_fr: "Soyons Édifiés (30 Prières Quotidiennes)",
     title_en: "Let Us Be Edified (30 Daily Prayers)",
     author: "Vogel Deza",
@@ -90,7 +92,7 @@ export const books = [
   },
   {
     id: 5,
-    image: "/images/image1.jpeg",
+    image: imgUrl("/images/image1.jpeg"),
     title_fr: "La Mission d'Ambassadeur",
     title_en: "The Ambassador's Mission",
     author: "Vogel Deza",
@@ -113,7 +115,7 @@ export const authors = [
   {
     id: "lewis",
     name: "Lewis Ekra",
-    image: "/images/lewis_ekra.jpeg",
+    image: imgUrl("/images/lewis_ekra.jpeg"),
     bio_fr:
       "Professionnel du capital humain, Conférencier et Formateur, Lewis EKRA est un Homme de vision qui sert sa génération en annonçant l'Évangile et en œuvrant pour un impact tangible. Porteur de la vision « Life Academy — École de la Vie, École de Destinée », il est un coach et mentor passionné qui accompagne le développement de leaders fondés sur l'excellence et l'intégrité. Auteur de plusieurs ouvrages, il partage également son expertise par l'écriture.",
     bio_en:
@@ -123,7 +125,7 @@ export const authors = [
   {
     id: "vogel",
     name: "Vogel Deza",
-    image: "/images/image7.jpeg",
+    image: imgUrl("/images/image7.jpeg"),
     bio_fr:
       "Vogel DEZA est un passionné de Christ, profondément engagé dans le partage, le coaching et le mentorat auprès des jeunes. Ingénieur Statisticien Économiste de formation, diplômé de l'ENSEA d'Abidjan et titulaire d'un Mastère Spécialisé en Stratégie et Management de l'ESCP Business School à Paris, il œuvre aujourd'hui dans le secteur du développement international. Écrivain engagé, il est l'auteur de deux ouvrages dédiés au leadership chrétien.",
     bio_en:

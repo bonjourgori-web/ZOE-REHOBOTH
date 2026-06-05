@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../App";
 import { translations } from "../translations";
 import { FACEBOOK_VIDEO, FACEBOOK_PAGE, WHATSAPP_BASE } from "../data/books";
+import { imgUrl } from "../utils/imgUrl";
 import { Play, MessageCircle, Users, Package } from "lucide-react";
 
 export default function VideoSection() {
@@ -33,7 +34,7 @@ export default function VideoSection() {
             {/* Thumbnail vidéo */}
             <div className="zr-media-thumb" data-testid="video-preview">
               <img
-                src="/images/image9.jpeg"
+                src={imgUrl("/images/image9.jpeg")}
                 alt="Déclarations pour la Vie — Vidéo"
                 className="zr-media-thumb__img"
                 onError={(e) => { e.target.style.display = "none"; }}

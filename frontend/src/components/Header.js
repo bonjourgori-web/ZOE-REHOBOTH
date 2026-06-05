@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { LanguageContext } from "../App";
 import { translations } from "../translations";
 import { Menu, X, Globe } from "lucide-react";
+import { imgUrl } from "../utils/imgUrl";
 
 export default function Header() {
   const { lang, setLang } = useContext(LanguageContext);
@@ -37,7 +38,7 @@ export default function Header() {
         {/* Logo */}
         <div className="zr-logo" data-testid="logo">
           <img
-            src="/images/logo.jpg"
+            src={imgUrl("/images/logo.jpg")}
             alt="Zoe & Rehoboth Editions"
             className="zr-logo__img"
             onError={(e) => { e.target.style.display = "none"; }}

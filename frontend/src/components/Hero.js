@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../App";
 import { translations } from "../translations";
 import { ChevronDown } from "lucide-react";
+import { imgUrl } from "../utils/imgUrl";
 
 export default function Hero() {
   const { lang } = useContext(LanguageContext);
@@ -22,7 +23,7 @@ export default function Hero() {
       {/* Background — colombe divine */}
       <div className="zr-hero__bg">
         <img
-          src="/images/dove_hero.jpg"
+          src={imgUrl("/images/dove_hero.jpg")}
           alt="ZOE & REHOBOTH — Éditions chrétiennes"
           className="zr-hero__bg-img"
           onError={(e) => { e.target.style.display = "none"; }}
