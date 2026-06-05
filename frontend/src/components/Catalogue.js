@@ -79,7 +79,7 @@ function BookCard({ book, lang, onExcerpt }) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="zr-book-card" data-testid={`book-card-${book.id}`}>
+    <div className={`zr-book-card${book.id === 3 ? " zr-book-card--featured" : ""}`} data-testid={`book-card-${book.id}`}>
       {/* Cover image */}
       <div className="zr-book-card__cover">
         {!imgError ? (

@@ -19,31 +19,54 @@ export default function Hero() {
 
   return (
     <section className="zr-hero" data-testid="hero-section">
-      {/* Background image */}
+      {/* Background — colombe divine */}
       <div className="zr-hero__bg">
         <img
-          src="/images/image8.jpeg"
-          alt="ZOE & REHOBOTH"
+          src="/images/dove_hero.jpg"
+          alt="ZOE & REHOBOTH — Éditions chrétiennes"
           className="zr-hero__bg-img"
-          onError={(e) => {
-            e.target.style.display = "none";
-          }}
+          onError={(e) => { e.target.style.display = "none"; }}
         />
         <div className="zr-hero__overlay" />
+        {/* Rayons lumineux CSS */}
+        <div className="zr-hero__rays" aria-hidden="true" />
       </div>
 
-      {/* Content */}
+      {/* Branding monumental ZOE & REHOBOTH */}
+      <div className="zr-hero__brand-wrap" aria-hidden="true">
+        <span className="zr-hero__brand-bg-text">ZOE</span>
+        <span className="zr-hero__brand-bg-amp">&amp;</span>
+        <span className="zr-hero__brand-bg-text">REHOBOTH</span>
+      </div>
+
+      {/* Contenu principal */}
       <div className="zr-hero__content">
-        <span className="zr-hero__tag animate-fadeInUp">{t.tag}</span>
-        <h1 className="zr-hero__title animate-fadeInUp animate-delay-1">
-          {t.title}
-        </h1>
+        {/* Croix ornementale */}
+        <div className="zr-hero__cross animate-fadeInUp">✝</div>
+
+        {/* Titre principal stylisé */}
+        <div className="zr-hero__brand-title animate-fadeInUp animate-delay-1">
+          <span className="zr-hero__brand-zoe">ZOE</span>
+          <span className="zr-hero__brand-sep"> &amp; </span>
+          <span className="zr-hero__brand-rehoboth">REHOBOTH</span>
+        </div>
+
+        {/* Sous-titre éditeur */}
+        <div className="zr-hero__edition animate-fadeInUp animate-delay-1">
+          <span className="zr-hero__edition-line" />
+          <span className="zr-hero__edition-text">ÉDITIONS</span>
+          <span className="zr-hero__edition-line" />
+        </div>
+
+        <span className="zr-hero__tag animate-fadeInUp animate-delay-2">{t.tag}</span>
+
         <p className="zr-hero__subtitle animate-fadeInUp animate-delay-2">
           {t.subtitle}
         </p>
+
         <div className="zr-hero__actions animate-fadeInUp animate-delay-3">
           <button
-            className="zr-btn zr-btn--primary"
+            className="zr-btn zr-btn--gold"
             onClick={scrollToCatalogue}
             data-testid="hero-cta-catalogue"
           >

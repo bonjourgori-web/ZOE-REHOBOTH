@@ -37,8 +37,8 @@ export const translations = {
       section_tag: "Nos Auteurs",
       title: "Les Serviteurs de la Parole",
       subtitle: "Des hommes et femmes de Dieu dédiés à l'édification du Corps de Christ.",
-      lewis_bio: "Auteur prolixe et homme de Dieu, Lewis Ekra est passionné par la transformation des destinées à travers la Parole prophétique. Ses ouvrages guident les lecteurs vers leurs percées professionnelles et spirituelles, révélant les protocoles divins qui ouvrent les portes de la faveur et de l'excellence.",
-      vogel_bio: "Servante de Dieu et femme de prière, Vogel Deza a consacré sa plume à l'édification du Corps de Christ. Ses écrits sur la mission d'ambassadeur et la prière quotidienne fortifient la foi des croyants et les équipent pour accomplir leur vocation divine dans le monde.",
+      lewis_bio: "Professionnel du capital humain, Conférencier et Formateur, Lewis EKRA est un Homme de vision qui sert sa génération en annonçant l'Évangile et en œuvrant pour un impact tangible. Porteur de la vision « Life Academy — École de la Vie, École de Destinée », il est un coach et mentor passionné qui accompagne le développement de leaders fondés sur l'excellence et l'intégrité. Auteur de plusieurs ouvrages, il partage également son expertise par l'écriture.",
+      vogel_bio: "Vogel DEZA est un passionné de Christ, profondément engagé dans le partage, le coaching et le mentorat auprès des jeunes. Ingénieur Statisticien Économiste, diplômé de l'ENSEA d'Abidjan et titulaire d'un Mastère Spécialisé en Stratégie et Management de l'ESCP Business School à Paris, il œuvre dans le secteur du développement international. Écrivain engagé, il est l'auteur de deux ouvrages dédiés au leadership chrétien.",
       books_by: "Livres de"
     },
     agenda: {
@@ -50,10 +50,18 @@ export const translations = {
       past_badge: "Passé"
     },
     video: {
-      section_tag: "Médias",
-      title: "Nos Livres en Vidéo",
-      subtitle: "Regardez nos publications présentées sur notre page Facebook officielle.",
+      section_tag: "Médias & Communauté",
+      title: "Nos Livres, Votre Communauté",
+      subtitle: "Rejoignez la conversation et découvrez nos ouvrages sur notre page Facebook.",
       watch_btn: "Voir sur Facebook",
+      description: "Découvrez nos ouvrages chrétiens en vidéo sur notre page Facebook ZOE & REHOBOTH Éditions. Témoignages, présentations de livres et messages d'édification vous attendent.",
+      testimony_label: "Témoignage de Joël",
+      testimony_text: "Joël a reçu son exemplaire de Déclarations pour la Vie. Découvrez son retour d'expérience !",
+      tracking_label: "Suivi de Commande",
+      tracking_text: "Vous avez passé votre commande mais n'avez pas encore reçu votre exemplaire ?",
+      tracking_link: "Contacter le service client",
+      fb_cta: "Rejoindre la Communauté Facebook",
+      fb_members: "Communauté active · +10k membres",
       description: "Découvrez nos ouvrages chrétiens en vidéo sur notre page Facebook ZOE & REHOBOTH Éditions."
     },
     distribution: {
@@ -115,8 +123,8 @@ export const translations = {
       section_tag: "Our Authors",
       title: "Servants of the Word",
       subtitle: "Men and women of God dedicated to building up the Body of Christ.",
-      lewis_bio: "Prolific author and man of God, Lewis Ekra is passionate about transforming destinies through the prophetic Word. His books guide readers toward their professional and spiritual breakthroughs, revealing the divine protocols that open the doors of favor and excellence.",
-      vogel_bio: "Servant of God and woman of prayer, Vogel Deza has dedicated her pen to edifying the Body of Christ. Her writings on the ambassador mission and daily prayer strengthen believers' faith and equip them to fulfill their divine calling in the world.",
+      lewis_bio: "Human capital professional, Speaker and Trainer, Lewis EKRA is a visionary man who serves his generation by proclaiming the Gospel and working for tangible impact. Carrier of the 'Life Academy — School of Life, School of Destiny' vision, he is a passionate coach and mentor accompanying the development of leaders grounded in excellence and integrity. Author of several works, he also shares his expertise through writing.",
+      vogel_bio: "Vogel DEZA is a passionate follower of Christ, deeply committed to sharing, coaching, and mentoring young people. A Statistical Economist Engineer, graduate of ENSEA Abidjan and holder of a Specialized Master's in Strategy and Management from ESCP Business School in Paris, he works in the international development sector. A committed writer and author of two works dedicated to Christian leadership.",
       books_by: "Books by"
     },
     agenda: {
@@ -128,11 +136,18 @@ export const translations = {
       past_badge: "Past"
     },
     video: {
-      section_tag: "Media",
-      title: "Our Books on Video",
-      subtitle: "Watch our publications presented on our official Facebook page.",
+      section_tag: "Media & Community",
+      title: "Our Books, Your Community",
+      subtitle: "Join the conversation and discover our books on our Facebook page.",
       watch_btn: "Watch on Facebook",
-      description: "Discover our Christian books on video on our ZOE & REHOBOTH Editions Facebook page."
+      description: "Discover our Christian books on video on our ZOE & REHOBOTH Editions Facebook page. Testimonials, book presentations and edifying messages await you.",
+      testimony_label: "Joel's Testimony",
+      testimony_text: "Joel received his copy of Declarations for Life. Discover his feedback!",
+      tracking_label: "Order Tracking",
+      tracking_text: "You placed your order but haven't received your copy yet?",
+      tracking_link: "Contact customer service",
+      fb_cta: "Join the Facebook Community",
+      fb_members: "Active community · 10k+ members",
     },
     distribution: {
       section_tag: "Distribution",

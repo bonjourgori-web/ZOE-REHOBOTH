@@ -281,6 +281,19 @@
 /* ======================================================
    HERO
 ====================================================== */
+@keyframes rayPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.28; transform: scale(1.04); }
+}
+@keyframes goldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes floatCross {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
 .zr-hero {
   position: relative;
   min-height: 100vh;
@@ -289,6 +302,8 @@
   justify-content: center;
   overflow: hidden;
 }
+
+/* — Background — */
 .zr-hero__bg {
   position: absolute;
   inset: 0;
@@ -298,53 +313,180 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 .zr-hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(26, 10, 8, 0.82) 0%,
-    rgba(139, 26, 0, 0.65) 50%,
-    rgba(26, 10, 8, 0.75) 100%
+    to bottom,
+    rgba(5, 2, 1, 0.18) 0%,
+    rgba(20, 8, 4, 0.38) 35%,
+    rgba(10, 4, 2, 0.72) 75%,
+    rgba(5, 2, 1, 0.88) 100%
   );
 }
+
+/* Rayons lumineux CSS en pseudo-overlay */
+.zr-hero__rays {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 55% at 50% 28%,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(255, 220, 100, 0.06) 40%,
+    transparent 70%
+  );
+  animation: rayPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* — Texte de fond monumental ZOE & REHOBOTH — */
+.zr-hero__brand-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  pointer-events: none;
+  overflow: hidden;
+}
+.zr-hero__brand-bg-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 18vw, 220px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.18);
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.zr-hero__brand-bg-amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(60px, 10vw, 140px);
+  font-weight: 300;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.22);
+  user-select: none;
+  line-height: 1;
+  padding: 0 0.1em;
+}
+
+/* — Contenu principal — */
 .zr-hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
-  max-width: 820px;
+  max-width: 860px;
   padding: 40px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
+
+/* Croix ornementale */
+.zr-hero__cross {
+  font-size: 28px;
+  color: #D4AF37;
+  animation: floatCross 3.5s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+  margin-bottom: -4px;
+}
+
+/* Titre principal ZOE & REHOBOTH */
+.zr-hero__brand-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.15em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.zr-hero__brand-zoe {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 9vw, 96px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #FAF8F0 0%, #D4AF37 35%, #F5E27A 55%, #D4AF37 75%, #FAF8F0 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 5s linear infinite;
+  line-height: 1;
+}
+.zr-hero__brand-sep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.85);
+  -webkit-text-fill-color: rgba(212, 175, 55, 0.85);
+  letter-spacing: 0.05em;
+}
+.zr-hero__brand-rehoboth {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 9vw, 96px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #D4AF37 0%, #FAF8F0 35%, #F5E27A 55%, #FAF8F0 75%, #D4AF37 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 5s linear infinite reverse;
+  line-height: 1;
+}
+
+/* Ligne — ÉDITIONS — */
+.zr-hero__edition {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: -6px;
+}
+.zr-hero__edition-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+}
+.zr-hero__edition-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.85);
+}
+
+/* Tag */
 .zr-hero__tag {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #D4AF37;
-  padding: 6px 18px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 5px 16px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 20px;
+  background: rgba(212, 175, 55, 0.06);
+  margin-top: 4px;
 }
-.zr-hero__title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(40px, 7vw, 72px);
-  font-weight: 600;
-  line-height: 1.1;
-  color: #FAF8F0;
-  letter-spacing: -0.01em;
-}
+
 .zr-hero__subtitle {
-  font-size: clamp(15px, 2vw, 18px);
-  color: rgba(250, 248, 240, 0.82);
-  max-width: 560px;
-  line-height: 1.7;
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: rgba(250, 248, 240, 0.78);
+  max-width: 520px;
+  line-height: 1.75;
 }
 .zr-hero__actions {
   display: flex;
@@ -358,15 +500,25 @@
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 2;
   background: none;
   border: none;
-  color: rgba(250, 248, 240, 0.6);
+  color: rgba(250, 248, 240, 0.55);
   cursor: pointer;
   animation: fadeInUp 0.8s ease 0.6s both;
   transition: color 0.2s ease;
 }
 .zr-hero__scroll:hover { color: #D4AF37; }
+
+/* Mobile hero */
+@media (max-width: 768px) {
+  .zr-hero__brand-bg-text {
+    font-size: clamp(50px, 22vw, 90px);
+    -webkit-text-stroke: 1px rgba(212, 175, 55, 0.12);
+  }
+  .zr-hero__brand-wrap { gap: 0.05em; }
+  .zr-hero__edition-line { width: 36px; }
+}
 
 /* ======================================================
    SECTIONS (shared)
@@ -379,7 +531,7 @@
   background-color: #FDF5E6;
 }
 .zr-section--dark {
-  background-color: #1A0A08;
+  background-color: #2E1510;
 }
 .zr-section__inner {
   max-width: 1200px;
@@ -613,8 +765,9 @@
 ====================================================== */
 .zr-books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+  justify-items: center;
 }
 
 /* Book card */
@@ -749,6 +902,64 @@
   transition: color 0.2s ease;
 }
 .zr-book-card__site-link:hover { color: #8B1A00; }
+
+/* Livre 3 — Mise en valeur (Déclarations pour la Vie) */
+.zr-book-card--featured {
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.18), 0 2px 8px rgba(139, 26, 0, 0.08);
+  position: relative;
+}
+.zr-book-card--featured::before {
+  content: "⭐ À la une";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8B1A00, #D4AF37, #8B1A00);
+  color: #FAF8F0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.zr-book-card--featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.28), 0 4px 16px rgba(139, 26, 0, 0.12);
+}
+.zr-book-card--featured .zr-book-card__cover {
+  height: 300px;
+}
+
+/* Grille 5 livres : 3 en haut, 2 centrés en bas */
+.zr-books-grid .zr-book-card:nth-child(4) {
+  grid-column: 1 / 2;
+  justify-self: end;
+}
+.zr-books-grid .zr-book-card:nth-child(5) {
+  grid-column: 2 / 3;
+  justify-self: start;
+}
+
+@media (max-width: 960px) {
+  .zr-books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .zr-books-grid .zr-book-card:nth-child(4),
+  .zr-books-grid .zr-book-card:nth-child(5) {
+    grid-column: auto;
+    justify-self: stretch;
+  }
+}
+@media (max-width: 600px) {
+  .zr-books-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Excerpt Modal */
 .zr-modal-overlay {
@@ -1055,77 +1266,312 @@
 }
 
 /* ======================================================
-   VIDEO SECTION
+   MÉDIAS & COMMUNAUTÉ
 ====================================================== */
-.zr-video-block {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
-.zr-video-preview {
+.zr-media-section { padding-bottom: 80px; }
+
+/* Fond colombe → arrière-plan blanc avec colombe en filigrane */
+.zr-media-dove-bg {
   position: relative;
-  aspect-ratio: 16/9;
-  border-radius: 4px;
+  background-color: #FDFCF8;
   overflow: hidden;
-  background-color: #2C1B18;
 }
-.zr-video-preview__img {
+.zr-media-dove-bg__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7;
+  object-position: center 30%;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
 }
-.zr-video-preview__overlay {
+.zr-media-dove-bg__glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(139, 26, 0, 0.4) 0%, rgba(26, 10, 8, 0.5) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 38%,
+    rgba(255,255,255,0.72) 0%,
+    rgba(253,252,248,0.5) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
-.zr-video-preview__play {
+.zr-media-dove-bg .zr-section__inner { position: relative; z-index: 1; }
+
+/* ── Textes adaptés au fond blanc ── */
+.zr-media-dove-bg .zr-section__tag { color: #8B1A00; border-color: rgba(139,26,0,0.25); }
+.zr-media-dove-bg .zr-section__title { color: #2C1B18; }
+.zr-media-dove-bg .zr-section__subtitle { color: #5C4A46; }
+.zr-media-dove-bg .zr-media-brand { color: #8B1A00; }
+.zr-media-dove-bg .zr-media-brand-sub { color: rgba(139,26,0,0.5); }
+.zr-media-dove-bg .zr-media-desc { color: #4A3530; }
+.zr-media-dove-bg .zr-media-caption {
+  background: rgba(255,255,255,0.75);
+  border-color: rgba(139,26,0,0.12);
+  box-shadow: 0 2px 12px rgba(139,26,0,0.06);
+}
+.zr-media-dove-bg .zr-media-caption__text { color: #4A3530; }
+.zr-media-dove-bg .zr-media-caption__link { color: #8B1A00; }
+.zr-media-dove-bg .zr-media-social-proof { color: #8C7B76; }
+.zr-media-dove-bg .zr-media-divider {
+  background: linear-gradient(90deg, transparent, rgba(139,26,0,0.2), transparent);
+}
+.zr-media-dove-bg .zr-media-quote {
+  color: #7A6A66;
+  border-left-color: rgba(139,26,0,0.25);
+}
+.zr-media-dove-bg .zr-media-quote cite { color: rgba(139,26,0,0.5); }
+.zr-media-dove-bg .zr-media-thumb {
+  box-shadow: 0 12px 48px rgba(44,27,24,0.22);
+}
+
+/* Grille principale 2 colonnes */
+.zr-media-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+/* ── Colonne gauche ── */
+.zr-media-left { display: flex; flex-direction: column; gap: 24px; }
+
+/* Thumbnail vidéo */
+.zr-media-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a0a08;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.zr-media-thumb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+.zr-media-thumb:hover .zr-media-thumb__img { opacity: 0.55; }
+
+/* Titre livre en or */
+.zr-media-thumb__book-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 16px;
+  background: linear-gradient(to top, rgba(5,2,1,0.92) 0%, transparent 100%);
+}
+.zr-media-thumb__book-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 2.2vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Bouton play détaillé */
+.zr-media-thumb__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+.zr-media-thumb__play:hover { transform: translate(-50%, -50%) scale(1.08); }
+.zr-media-thumb__play-ring {
   width: 72px;
   height: 72px;
-  background-color: rgba(212, 175, 55, 0.95);
-  color: #2C1B18;
+  background: rgba(212, 175, 55, 0.92);
+  color: #1a0a08;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: all 0.25s ease;
+  box-shadow: 0 0 0 8px rgba(212,175,55,0.2), 0 4px 20px rgba(0,0,0,0.4);
   animation: pulseGold 2.5s infinite;
 }
-.zr-video-preview__play:hover {
-  background-color: #D4AF37;
-  transform: scale(1.08);
-}
-.zr-video-content__logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #D4AF37;
-  letter-spacing: 0.04em;
-  margin-bottom: 20px;
-}
-.zr-video-content__desc {
-  font-size: 16px;
-  color: rgba(250, 248, 240, 0.75);
-  line-height: 1.8;
-  margin-bottom: 28px;
-}
-.zr-video-content__actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+.zr-media-thumb__play-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,248,240,0.9);
 }
 
-@media (max-width: 768px) {
-  .zr-video-block {
+/* Légendes sous la vidéo */
+.zr-media-captions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.zr-media-caption {
+  background: rgba(250,248,240,0.05);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.zr-media-caption__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.zr-media-caption__icon--gold {
+  background: rgba(212,175,55,0.15);
+  color: #D4AF37;
+}
+.zr-media-caption__icon--red {
+  background: rgba(139,26,0,0.25);
+  color: #E05030;
+}
+.zr-media-caption__body { display: flex; flex-direction: column; gap: 4px; }
+.zr-media-caption__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4AF37;
+}
+.zr-media-caption__text {
+  font-size: 12px;
+  color: rgba(250,248,240,0.72);
+  line-height: 1.5;
+  margin: 0;
+}
+.zr-media-caption__link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #D4AF37;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: opacity 0.2s ease;
+}
+.zr-media-caption__link:hover { opacity: 0.75; }
+
+/* ── Colonne droite ── */
+.zr-media-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 8px;
+}
+.zr-media-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #D4AF37;
+  line-height: 1;
+}
+.zr-media-brand-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(212,175,55,0.6);
+  margin-top: -12px;
+}
+.zr-media-desc {
+  font-size: 15px;
+  color: rgba(250,248,240,0.72);
+  line-height: 1.8;
+}
+
+/* Bouton Facebook proéminent */
+.zr-media-fb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: #1877F2;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 16px rgba(24,119,242,0.35);
+}
+.zr-media-fb-btn:hover {
+  background: #1467D6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(24,119,242,0.45);
+}
+.zr-media-fb-btn__icon { flex-shrink: 0; }
+
+/* Indicateur social */
+.zr-media-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: rgba(250,248,240,0.5);
+}
+.zr-media-social-proof svg { color: #D4AF37; }
+
+/* Séparateur */
+.zr-media-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+}
+
+/* Citation */
+.zr-media-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(250,248,240,0.55);
+  line-height: 1.7;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(212,175,55,0.3);
+}
+.zr-media-quote cite {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(212,175,55,0.6);
+  margin-top: 6px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .zr-media-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
+  .zr-media-right { padding-top: 0; }
+}
+@media (max-width: 560px) {
+  .zr-media-captions { grid-template-columns: 1fr; }
 }
 
 /* ======================================================

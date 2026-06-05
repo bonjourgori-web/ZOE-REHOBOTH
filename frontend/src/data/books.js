@@ -19,8 +19,8 @@ export const books = [
     title_en: "Palace Protocols for Professional Breakthroughs",
     author: "Lewis Ekra",
     price: 10000,
-    promo_price: 8000,
-    has_promo: true,
+    promo_price: null,
+    has_promo: false,
     description_fr:
       "Un guide prophétique révélant les protocoles divins qui déverrouillent les portes de vos percées professionnelles et de votre avancement.",
     description_en:
@@ -113,11 +113,11 @@ export const authors = [
   {
     id: "lewis",
     name: "Lewis Ekra",
-    image: "/images/image10.jpeg",
+    image: "/images/lewis_ekra.jpeg",
     bio_fr:
-      "Auteur prolixe et homme de Dieu, Lewis Ekra est passionné par la transformation des destinées à travers la Parole prophétique. Ses ouvrages guident les lecteurs vers leurs percées professionnelles et spirituelles, révélant les protocoles divins qui ouvrent les portes de la faveur et de l'excellence.",
+      "Professionnel du capital humain, Conférencier et Formateur, Lewis EKRA est un Homme de vision qui sert sa génération en annonçant l'Évangile et en œuvrant pour un impact tangible. Porteur de la vision « Life Academy — École de la Vie, École de Destinée », il est un coach et mentor passionné qui accompagne le développement de leaders fondés sur l'excellence et l'intégrité. Auteur de plusieurs ouvrages, il partage également son expertise par l'écriture.",
     bio_en:
-      "Prolific author and man of God, Lewis Ekra is passionate about transforming destinies through the prophetic Word. His books guide readers toward their professional and spiritual breakthroughs, revealing the divine protocols that open the doors of favor and excellence.",
+      "Human capital professional, Speaker and Trainer, Lewis EKRA is a visionary man who serves his generation by proclaiming the Gospel and working for tangible impact. Carrier of the 'Life Academy — School of Life, School of Destiny' vision, he is a passionate coach and mentor who accompanies the development of leaders grounded in excellence and integrity. Author of several works, he also shares his expertise through writing.",
     books: [1, 2, 3],
   },
   {
@@ -125,9 +125,9 @@ export const authors = [
     name: "Vogel Deza",
     image: "/images/image7.jpeg",
     bio_fr:
-      "Servante de Dieu et femme de prière, Vogel Deza a consacré sa plume à l'édification du Corps de Christ. Ses écrits sur la mission d'ambassadeur et la prière quotidienne fortifient la foi des croyants et les équipent pour accomplir leur vocation divine dans le monde.",
+      "Vogel DEZA est un passionné de Christ, profondément engagé dans le partage, le coaching et le mentorat auprès des jeunes. Ingénieur Statisticien Économiste de formation, diplômé de l'ENSEA d'Abidjan et titulaire d'un Mastère Spécialisé en Stratégie et Management de l'ESCP Business School à Paris, il œuvre aujourd'hui dans le secteur du développement international. Écrivain engagé, il est l'auteur de deux ouvrages dédiés au leadership chrétien.",
     bio_en:
-      "Servant of God and woman of prayer, Vogel Deza has dedicated her pen to edifying the Body of Christ. Her writings on the ambassador mission and daily prayer strengthen believers' faith and equip them to fulfill their divine calling in the world.",
+      "Vogel DEZA is a passionate follower of Christ, deeply committed to sharing, coaching, and mentoring young people. A Statistical Economist Engineer by training, graduate of ENSEA Abidjan and holder of a Specialized Master's in Strategy and Management from ESCP Business School in Paris, he now works in the international development sector. A committed writer, he is the author of two works dedicated to Christian leadership.",
     books: [4, 5],
   },
 ];
