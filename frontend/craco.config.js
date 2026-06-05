@@ -37,6 +37,12 @@ let webpackConfig = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig) => {
+      // Désactiver le minimizer CSS (incompatible Node 24 + cssnano)
+      if (webpackConfig.optimization && webpackConfig.optimization.minimizer) {
+        webpackConfig.optimization.minimizer = webpackConfig.optimization.minimizer.filter(
+          (m) => m.constructor.name !== 'CssMinimizerPlugin'
+        );
+      }
 
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {

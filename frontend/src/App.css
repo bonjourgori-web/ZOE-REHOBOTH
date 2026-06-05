@@ -788,7 +788,7 @@
 .zr-book-card__cover {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 0.75;
   background-color: #F0E8D8;
   overflow: hidden;
 }
@@ -937,11 +937,13 @@
 
 /* Grille 5 livres : 3 en haut, 2 centrés en bas */
 .zr-books-grid .zr-book-card:nth-child(4) {
-  grid-column: 1 / 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
   justify-self: end;
 }
 .zr-books-grid .zr-book-card:nth-child(5) {
-  grid-column: 2 / 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
   justify-self: start;
 }
 
@@ -1077,7 +1079,7 @@
 }
 .zr-author-photo__img {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 0.75;
   object-fit: cover;
   object-position: top;
   border-radius: 2px;
@@ -1086,7 +1088,7 @@
 }
 .zr-author-photo__fallback {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 0.75;
   background: linear-gradient(135deg, #F0E8D8, #E8D8C4);
   display: flex;
   align-items: center;
@@ -1343,7 +1345,7 @@
 /* Thumbnail vidéo */
 .zr-media-thumb {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 1.7778;
   border-radius: 8px;
   overflow: hidden;
   background-color: #1a0a08;
