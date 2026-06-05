@@ -49,7 +49,7 @@ function ProtectedRoute({ children }) {
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />
