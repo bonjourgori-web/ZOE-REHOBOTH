@@ -42,9 +42,6 @@ export default function Header() {
             className="zr-logo__img"
             onError={(e) => { e.target.style.display = "none"; }}
           />
-          <span className="zr-badge" data-testid="sponsored-badge">
-            {t.badge}
-          </span>
         </div>
 
         {/* Desktop Nav */}
